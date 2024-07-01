@@ -4,6 +4,13 @@ body {
     background-color: #f0f8ff; 
     color: #333; 
 }
+h1 {
+    margin-top: 20px;
+}
+#instructions {
+    margin: 20px;
+    font-size: 18px;
+}
 #kana { 
     font-size: 48px; 
     margin: 20px; 
@@ -22,6 +29,12 @@ body {
 .key.pressed { 
     background-color: red; 
     font-weight: bold; 
+}
+#submit-btn {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
 #score { 
     font-size: 24px; 
