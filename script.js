@@ -19,6 +19,7 @@ const kanaDiv = document.getElementById('kana');
 const keysDiv = document.getElementById('keys');
 const scoreDiv = document.getElementById('score');
 const resultDiv = document.getElementById('result');
+const submitBtn = document.getElementById('submit-btn');
 
 function randomKana() {
     const keys = Object.keys(brailleDict);
@@ -37,14 +38,14 @@ function resetInput() {
 
 function checkInput() {
     if (user_input.join('') === currentBraille) {
-        resultDiv.textContent = "正确!";
+        resultDiv.textContent = "正解！";
         resultDiv.style.color = "green";
         score += 10;
-        scoreDiv.textContent = `积分: ${score}`;
+        scoreDiv.textContent = `ポイント: ${score}`;
         resetInput();
         setTimeout(randomKana, 1000);
     } else {
-        resultDiv.textContent = "错误!";
+        resultDiv.textContent = "不正解！";
         resultDiv.style.color = "red";
         resetInput();
     }
@@ -69,5 +70,7 @@ document.addEventListener('keydown', event => {
         checkInput();
     }
 });
+
+submitBtn.addEventListener('click', checkInput);
 
 randomKana();
