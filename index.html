@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finger Braille Practice</title>
+    <title>指点字練習サイト</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>手指盲文练习</h1>
+    <h1>指点字練習サイト</h1>
+    <div id="instructions">
+        <p>左手の人差し指をFに置き、右手の人差し指をJに置いてください。</p>
+        <p>左手の人差し指、中指、薬指をそれぞれ点字の1,2,3の点に対応しています。右手の人差し指、中指、薬指をそれぞれ点字の4,5,6の点に対応しています。</p>
+        <p>表示されたひらがなの指点字をキーワードで押して、スペースで提出してください。</p>
+    </div>
     <div id="kana">あ</div>
     <div id="keys">
         <div class="key" id="key-s">3</div>
@@ -17,7 +22,7 @@
         <div class="key" id="key-k">5</div>
         <div class="key" id="key-l">6</div>
     </div>
-    <div id="score">积分: 0</div>
+    <div id="score">ポイント: 0</div>
     <div id="result"></div>
     <script src="script.js"></script>
 </body>
