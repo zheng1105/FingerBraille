@@ -4,88 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finger Braille Practice</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        #kana { font-size: 48px; margin: 20px; }
-        .key { display: inline-block; width: 50px; height: 50px; line-height: 50px; margin: 5px; border: 2px solid black; font-size: 24px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>手指盲文练习</h1>
     <div id="kana">あ</div>
     <div id="keys">
-        <div class="key" id="key-s">s</div>
-        <div class="key" id="key-d">d</div>
-        <div class="key" id="key-f">f</div>
-        <div class="key" id="key-j">j</div>
-        <div class="key" id="key-k">k</div>
-        <div class="key" id="key-l">l</div>
+        <div class="key" id="key-s">3</div>
+        <div class="key" id="key-d">2</div>
+        <div class="key" id="key-f">1</div>
+        <div class="key" id="key-j">4</div>
+        <div class="key" id="key-k">5</div>
+        <div class="key" id="key-l">6</div>
     </div>
     <div id="score">积分: 0</div>
     <div id="result"></div>
-    <script>
-        const keyToBraille = { 'f': 0, 'd': 1, 's': 2, 'j': 3, 'k': 4, 'l': 5 };
-        const brailleDict = {
-            "あ": "100000", "い": "110000", "う": "100100", "え": "110100", "お": "010100",
-            // ... 其他假名省略
-            "ん": "001011"
-        };
-        let score = 0;
-        let user_input = ["0", "0", "0", "0", "0", "0"];
-        let currentKana = "";
-        let currentBraille = "";
-        const kanaDiv = document.getElementById('kana');
-        const keysDiv = document.getElementById('keys');
-        const scoreDiv = document.getElementById('score');
-        const resultDiv = document.getElementById('result');
-
-        function randomKana() {
-            const keys = Object.keys(brailleDict);
-            const randomKey = keys[Math.floor(Math.random() * keys.length)];
-            currentKana = randomKey;
-            currentBraille = brailleDict[randomKey];
-            kanaDiv.textContent = currentKana;
-        }
-
-        function resetInput() {
-            user_input = ["0", "0", "0", "0", "0", "0"];
-            document.querySelectorAll('.key').forEach(key => {
-                key.style.backgroundColor = '';
-            });
-        }
-
-        function checkInput() {
-            if (user_input.join('') === currentBraille) {
-                resultDiv.textContent = "正确!";
-                resultDiv.style.color = "green";
-                score += 10;
-                scoreDiv.textContent = `积分: ${score}`;
-                resetInput();
-                setTimeout(randomKana, 1000);
-            } else {
-                resultDiv.textContent = "错误!";
-                resultDiv.style.color = "red";
-                resetInput();
-            }
-        }
-
-        keysDiv.addEventListener('click', event => {
-            const key = event.target.id.split('-')[1];
-            if (keyToBraille.hasOwnProperty(key)) {
-                const pos = keyToBraille[key];
-                user_input[pos] = user_input[pos] === "0" ? "1" : "0";
-                event.target.style.backgroundColor = user_input[pos] === "1" ? "red" : '';
-            }
-        });
-
-        document.addEventListener('keydown', event => {
-            const key = event.key.toLowerCase();
-            if (key === ' ') {
-                checkInput();
-            }
-        });
-
-        randomKana();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
